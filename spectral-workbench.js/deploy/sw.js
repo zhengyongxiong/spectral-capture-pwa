@@ -10,12 +10,19 @@ const ASSETS = [
   '/examples/new-capture/mobile.css',
   '/examples/new-capture/new-capture.css',
   '/examples/new-capture/mobile-init.js',
-  '/node_modules/jquery/dist/jquery.min.js',
-  '/node_modules/bootstrap/dist/css/bootstrap.min.css',
-  '/node_modules/font-awesome/css/font-awesome.min.css',
+  '/vendor/jquery.min.js',
+  '/vendor/bootstrap.min.css',
+  '/vendor/font-awesome.min.css',
   '/examples/vendor/bs-stepper.min.css',
   '/examples/vendor/bs-stepper.min.js',
-  '/examples/vendor/adapter.min.js'
+  '/examples/vendor/adapter.min.js',
+  '/vendor/jquery.flot.js',
+  '/vendor/jquery.flot.crosshair.js',
+  '/vendor/jquery.flot.threshold.js',
+  '/vendor/d3.js',
+  '/vendor/nv.d3.js',
+  '/vendor/nv.d3.css',
+  '/vendor/moment.js'
 ];
 
 self.addEventListener('install', (event) => {
