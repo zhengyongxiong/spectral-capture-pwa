@@ -1,0 +1,385 @@
+:root {
+  --bg-color: #0b0f14;
+  --card-bg: #121826;
+  --text-color: #e0e0e0;
+  --primary-btn: #007bff;
+  --btn-radius: 12px;
+  --btn-height: 48px;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Dark Theme overrides */
+#settings, #capture, .content {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Common Card Style */
+.card-panel {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+.btn, .demo-button {
+  height: var(--btn-height);
+  border-radius: var(--btn-radius) !important;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+}
+
+.btn-primary, .demo-button.next {
+  background: var(--primary-btn) !important;
+  border: none;
+  font-weight: 600;
+  width: 100%; /* Full width on mobile mostly */
+  max-width: 400px;
+}
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  /* Hide stepper on mobile */
+  .bs-stepper-header {
+    display: none !important; 
+  }
+  
+  /* Mobile Header */
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: linear-gradient(180deg, #1a2236 0%, #121826 100%);
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  /* --- SETTINGS PAGE --- */
+  #settings .center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 80px; /* Space for sticky button */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Video Container */
+  #webcam {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+    margin-bottom: 16px;
+    min-height: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  #webcam video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 45vh;
+    object-fit: cover;
+  }
+
+  /* Controls Area */
+  .control-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .control-buttons .btn {
+    width: 100%;
+    margin: 0 !important;
+    background: #2a3441;
+    border: 1px solid #3e4c5e;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+  }
+  
+  .control-buttons .btn:active {
+    background: #3e4c5e;
+    transform: translateY(1px);
+  }
+
+  /* Camera Source */
+  .select-wrapper {
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  select#videoSource {
+    width: 100%;
+    height: 44px;
+    background: #2a3441;
+    color: white;
+    border: 1px solid #3e4c5e;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  /* Sticky Bottom Button */
+  .sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    background: rgba(18, 24, 38, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #2a3441;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  }
+
+  /* --- CAPTURE PAGE --- */
+  #capture {
+    padding-bottom: 120px !important;
+    overflow-x: hidden;
+    width: 100vw; /* Prevent horizontal scroll */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Prevent horizontal scroll globally on mobile */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  #capture .full-strecth-flex-horizontal {
+    flex-direction: column !important;
+    height: auto !important;
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Preview Container */
+  #sidebar {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  /* Force display hidden-phone elements */
+  #sidebar .hidden-phone {
+    display: block !important;
+    width: 100%;
+  }
+  
+  /* Preview Canvas */
+  #sidebar canvas#preview {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 150px;
+    max-height: 30vh;
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Toolbar adjustments */
+  #sidebar .toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px 0 20px 0 !important;
+    width: 100%;
+    margin-left: 0 !important;
+    box-sizing: border-box;
+  }
+  
+  #sidebar .toolbar .btn {
+    flex: 1;
+    background: #2a3441;
+    border: 1px solid #3e4c5e;
+    color: white;
+  }
+
+  /* Right Side (Graph & History) */
+  #capture-phase-right {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+  }
+  
+  #capture-phase-right > div {
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* Graph Controls (RGB Mode etc) */
+  #capture-phase-right .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Graph */
+  #graph {
+    width: 100% !important;
+    height: 30vh !important; /* 28-32vh */
+    min-height: 200px;
+    margin: 10px 0 !important;
+    background: #0b0f14; /* Visualize area */
+    border-radius: 8px;
+    /* Fix for Invalid dimensions: ensure it has width even when empty */
+    min-width: 100px; 
+    display: block;
+    /* Ensure Flot can calculate dimensions */
+    position: relative;
+  }
+  
+  /* History Canvas */
+  #canvas {
+    width: 100% !important;
+    height: 16vh !important; /* 14-18vh */
+    min-height: 100px;
+    border-radius: 8px;
+    margin: 0 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  /* Text below canvas */
+  #capture-phase-right p {
+    margin-left: 0 !important;
+    width: 100% !important;
+    font-size: 13px;
+    color: #8899a6;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* Capture Actions Sticky */
+  .capture-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    background: rgba(18, 24, 38, 0.95);
+    z-index: 1000;
+    display: flex;
+    gap: 12px;
+    border-top: 1px solid #2a3441;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+  }
+  
+  .capture-actions button {
+    flex: 1;
+    margin: 0 !important;
+    height: 48px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex !important; /* Force display flex to override none */
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+  }
+
+  /* Specific Button Styles in Sticky Bar */
+  /* Save Button */
+  .capture-actions #capture-page-next {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  }
+
+  /* Download Button */
+  .capture-actions #download-spectrum {
+    background: #2a3441;
+    color: white;
+    border: 1px solid #3e4c5e;
+  }
+  
+  /* Hide original buttons ONLY when they are NOT inside capture-actions 
+     Since we can't select "parent not capture-actions", we rely on the specific overrides above.
+     The global selector below will try to hide them, but the specific selector above wins.
+  */
+  
+  /* Hide original buttons globally, but we override specifically for .capture-actions children above */
+  /* However, CSS specificity for ID selector is high. */
+  /* Let's NOT use display:none !important on the ID globally. */
+  
+  /* Hide landing page content completely */
+  #landing-page {
+    display: none !important;
+  }
+  
+  /* Hide non-active steps off-screen to preserve dimensions for Flot */
+  .bs-stepper-content .content:not(.active) {
+    display: block !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    width: 100% !important;
+  }
+
+  /* Ensure active content is visible and stacked */
+  .bs-stepper-content .content.active {
+    display: flex !important;
+    flex-direction: column;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    padding-top: 10px;
+  }
+
+  /* Hide unwanted elements */
+  #heightIndicatorPrev {
+    display: none !important; /* It's just a line, maybe confusing on mobile */
+  }
+}
+
+/* Global Hide for Desktop (if needed) or just reset */
+/* Since we moved them in JS, they are now in .capture-actions. 
+   We just need to make sure they are visible there. 
+   The issue before was display:none !important on the ID.
+   We removed that from this file.
+*/

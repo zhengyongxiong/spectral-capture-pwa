@@ -1,3 +1,9 @@
 *.pem
 cert.pem
 key.pem
+node_modules/
+.DS_Store
+*.pem
+*.key
+cert.pem
+key.pem
